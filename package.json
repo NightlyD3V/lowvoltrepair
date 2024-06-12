@@ -1,0 +1,17 @@
+{
+  "name": "lowvoltrepair",
+  "version": "1.0.0",
+  "description": "electronic repair company website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nightly",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.165.0"
+  },
+  "devDependencies": {
+    "vite": "^5.2.13"
+  }
+}
