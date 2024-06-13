@@ -48,8 +48,18 @@ table {
 }
 
 /* CUSTOM */
+nav {
+	background-color: #0a0b0c;
+	color: white;
+}
 .logo {
 	padding: 25px;
 	font-size: 35px;
 	font-family: 'Tiny5'
+}
+.nav_link {
+	text-decoration: none;
+	padding: 10px;
+	color: white;
+	font-family: "Cinzel"
 }
