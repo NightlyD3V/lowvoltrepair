@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 
 const canvas = document.querySelector('canvas.webgl')
 
-const scene = new THREE.Scene();
+const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight);
 camera.position.set(0, 0, 0.6);
 
@@ -12,39 +12,45 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 renderer.setSize( window.innerWidth, window.innerHeight )
-renderer.setClearColor( "#0a0b0c" );
+renderer.setClearColor( "#0a0b0c" )
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.25;
-renderer.shadowMap.enabled = true;
+renderer.toneMappingExposure = 1.25
+renderer.shadowMap.enabled = true
 
 // LIGHTING
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 10, 7.5);
-scene.add(directionalLight);
+scene.add(directionalLight)
 
 const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
-scene.add(ambientLight);
+scene.add(ambientLight)
 
 const pointLight = new THREE.PointLight(0xffffff, 1, 100);
 pointLight.position.set(10, 10, 10);
-scene.add(pointLight);
+scene.add(pointLight)
 
 const spotLight = new THREE.SpotLight(0xffffff);
 spotLight.position.set(15, 40, 35);
 spotLight.angle = Math.PI / 6;
-scene.add(spotLight);
+scene.add(spotLight)
 
-const loader = new GLTFLoader();
+const loader = new GLTFLoader()
 let gltfScene;
-loader.load( './models/macbook/scene.glb', function ( gltf ) {
-    gltfScene = gltf.scene;
-	scene.add( gltfScene );
+loader.load('./models/macbook/scene.glb', function ( gltf ) {
+    gltfScene = gltf.scene
+	scene.add( gltfScene )
     renderer.render(scene, camera)   
 }, undefined, function ( error ) {
-	console.error( error );
-} );
-
+	console.error( error )
+} )
+loader.load( './models/tablet/tablet.gltf', function ( gltf ) {
+    gltf.scene.scale.setScalar(0.01)
+    scene.add(gltf.scene)
+    renderer.render(scene, camera) 
+}, undefined, function ( error ) {
+	console.error( error )
+} )
 
 addEventListener("resize", (event) => {})
 

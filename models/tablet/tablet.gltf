@@ -1,0 +1,144 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "10117_iPad_Tablet-PC_v01_iterations-2",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ],
+            "translation" : [
+                0,
+                0.13086500763893127,
+                0
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "10117_iPad_Tablet_PC_v01",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.8945907354354858
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "10117_iPad_Tablet-PC_v01_iterations-2",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "10117_iPad_Tablet-PC_v01_difuse",
+            "uri" : "10117_iPad_Tablet-PC_v01_difuse.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 2358,
+            "max" : [
+                9.287199974060059,
+                1.9549000263214111,
+                13.018899917602539
+            ],
+            "min" : [
+                -9.287199974060059,
+                0.012400000356137753,
+                -13.018899917602539
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 2358,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 2358,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 12864,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 28296,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 28296,
+            "byteOffset" : 28296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18864,
+            "byteOffset" : 56592
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 25728,
+            "byteOffset" : 75456
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 101184,
+            "uri" : "tablet.bin"
+        }
+    ]
+}

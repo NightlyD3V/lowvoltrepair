@@ -53,13 +53,13 @@ nav {
 	color: white;
 }
 .logo {
-	padding: 25px;
 	font-size: 35px;
-	font-family: 'Tiny5'
+	font-family: 'Tiny5';
+	padding: 25px;
 }
 .nav_link {
-	text-decoration: none;
-	padding: 10px;
 	color: white;
-	font-family: "Cinzel"
+	font-family: "Cinzel";
+	padding: 10px;
+	text-decoration: none;
 }
