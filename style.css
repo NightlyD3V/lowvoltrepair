@@ -69,3 +69,13 @@ nav {
 	padding: 10px;
 	text-decoration: none;
 }
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 800px) {
+	 .nav_link {
+		display: none;
+	 }
+	 nav {
+		justify-content: space-between;
+	 }
+}
