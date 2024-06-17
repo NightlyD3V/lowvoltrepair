@@ -9,6 +9,7 @@
   "author": "Nightly",
   "license": "MIT",
   "dependencies": {
+    "postprocessing": "^6.35.5",
     "three": "^0.165.0"
   },
   "devDependencies": {

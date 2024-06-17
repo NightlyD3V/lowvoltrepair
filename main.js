@@ -1,10 +1,14 @@
 import * as THREE from 'three'
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
+import { EffectComposer } from 'postprocessing';
+import { RenderPass } from 'postprocessing';
+import { DepthOfFieldEffect } from 'postprocessing';
+
 
 const canvas = document.querySelector('canvas.webgl')
 
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight);
+const camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight);
 camera.position.set(0, 0, 0.9);
 
 const renderer = new THREE.WebGLRenderer({
@@ -36,17 +40,17 @@ renderer.shadowMap.enabled = true
 // scene.add(spotLight)
 
 // Key Light
-const keyLight = new THREE.DirectionalLight(0xffffff, 3);
+const keyLight = new THREE.DirectionalLight(0xffffff, 3)
 keyLight.position.set(5, 5, 5); // Adjust position as needed
 scene.add(keyLight);
 
 // Fill Light
-const fillLight = new THREE.DirectionalLight(0xffffff, 1);
+const fillLight = new THREE.DirectionalLight(0xffffff, 1)
 fillLight.position.set(-5, 5, 5); // Adjust position as needed
 scene.add(fillLight);
 
 // Back Light
-const backLight = new THREE.DirectionalLight(0xffffff, 1);
+const backLight = new THREE.DirectionalLight(0xffffff, 1)
 backLight.position.set(0, 5, -5); // Adjust position as needed
 scene.add(backLight);
 
@@ -70,7 +74,7 @@ loader.load('./models/macbook/scene.glb', ( gltf ) => {
     })
     loader.load('./models/wrench/wrench.gltf', ( gltf ) => {
         wrench_scene = gltf.scene	
-        wrench_scene.scale.setScalar(0.2)	
+        wrench_scene.scale.setScalar(0.1)	
         wrench_scene.position.setX(-0.4)	
         wrench_scene.rotation.x = Math.PI / 2;	
         // let wrench_clone = wrench_scene.clone()
@@ -94,7 +98,7 @@ loader.load('./models/macbook/scene.glb', ( gltf ) => {
         tablet_scene.scale.setScalar(0.01)
         loader.load('./models/phone/iphone.gltf', ( gltf ) => {
             iphone_scene = gltf.scene
-            iphone_scene.position.setZ(20)
+            iphone_scene.position.setZ(15)
             iphone_scene.scale.setScalar(4)
             tablet_scene.add(iphone_scene)
         })
@@ -108,44 +112,56 @@ loader.load('./models/macbook/scene.glb', ( gltf ) => {
 	console.error( error )
 } )
 
+// Initialize postprocessing
+const composer = new EffectComposer(renderer);
+const renderPass = new RenderPass(scene, camera);
+composer.addPass(renderPass);
 
+// Add Depth of Field (DoF) effect
+const depthOfFieldEffect = new DepthOfFieldEffect(camera, {
+    focusDistance: 0.02,
+    focalLength: 0.5,
+    bokehScale: 2.0,
+    height: 480
+});
+
+// HANDLE WINDOW RESIZES
 addEventListener("resize", (event) => {})
-
 onresize = (event) => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = window.innerWidth / window.innerHeight
 
-    camera.updateProjectionMatrix();
+    camera.updateProjectionMatrix()
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
 function animate() {
     requestAnimationFrame(animate);
 
     if (gltfScene, tablet_scene, iphone_scene, multimeter_scene, wrench_scene, screwdriver_scene) {
-        gltfScene.rotation.x += 0.001; // Rotate around X-axis
-        gltfScene.rotation.y += 0.009; // Rotate around Y-axis
-        gltfScene.rotation.z += 0.001; // Rotate around Z-axis
+        gltfScene.rotation.x += 0.001
+        gltfScene.rotation.y += 0.009
+        gltfScene.rotation.z += 0.001
 
-        tablet_scene.rotation.x += 0.001; // Rotate around X-axis
-        tablet_scene.rotation.y += 0.009; // Rotate around Y-axis
-        tablet_scene.rotation.z += 0.001; // Rotate around Z-axis
+        tablet_scene.rotation.x += 0.001
+        tablet_scene.rotation.y += 0.009
+        tablet_scene.rotation.z += 0.001
         
-        iphone_scene.rotation.x += 0.001; // Rotate around X-axis
-        iphone_scene.rotation.y += 0.009; // Rotate around Y-axis
-        iphone_scene.rotation.z += 0.001; // Rotate around Z-axis
+        iphone_scene.rotation.x += 0.001
+        iphone_scene.rotation.y += 0.009
+        iphone_scene.rotation.z += 0.001
         
-        multimeter_scene.rotation.x += 0.001; // Rotate around X-axis
-        multimeter_scene.rotation.y += 0.005; // Rotate around Y-axis
-        multimeter_scene.rotation.z += 0.009; // Rotate around Z-axis
+        multimeter_scene.rotation.x += 0.001
+        multimeter_scene.rotation.y += 0.005
+        multimeter_scene.rotation.z += 0.009
 
-        wrench_scene.rotation.x += 0.001; // Rotate around X-axis
-        wrench_scene.rotation.y += 0.005; // Rotate around Y-axis
-        wrench_scene.rotation.z += 0.009; // Rotate around Z-axis
+        wrench_scene.rotation.x += 0.001
+        wrench_scene.rotation.y += 0.005
+        wrench_scene.rotation.z += 0.009
 
-        screwdriver_scene.rotation.x += 0.001; // Rotate around X-axis
-        screwdriver_scene.rotation.y += 0.005; // Rotate around Y-axis
-        screwdriver_scene.rotation.z += 0.009; // Rotate around Z-axis
+        screwdriver_scene.rotation.x += 0.001
+        screwdriver_scene.rotation.y += 0.005
+        screwdriver_scene.rotation.z += 0.009
     }
 
     renderer.render(scene, camera);
