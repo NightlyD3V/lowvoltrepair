@@ -1,10 +1,11 @@
+// IMPORTS
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader'
 import { EffectComposer } from 'postprocessing';
 import { RenderPass } from 'postprocessing';
 import { DepthOfFieldEffect } from 'postprocessing';
 
-
+// MAIN
 const canvas = document.querySelector('canvas.webgl')
 
 const scene = new THREE.Scene()
@@ -12,7 +13,11 @@ const camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.inner
 camera.position.set(0, 0, 0.9);
 
 const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
+    canvas: canvas,
+    powerPreference: "high-performance",
+    antialias: true,
+    stencil: true, 
+    depth: true
 });
 
 renderer.setSize( window.innerWidth, window.innerHeight )
@@ -39,6 +44,7 @@ renderer.shadowMap.enabled = true
 // spotLight.angle = Math.PI / 6;
 // scene.add(spotLight)
 
+// LIGHTING
 // Key Light
 const keyLight = new THREE.DirectionalLight(0xffffff, 3)
 keyLight.position.set(5, 5, 5); // Adjust position as needed
@@ -54,7 +60,7 @@ const backLight = new THREE.DirectionalLight(0xffffff, 1)
 backLight.position.set(0, 5, -5); // Adjust position as needed
 scene.add(backLight);
 
-
+// GLTF LOADING
 const loader = new GLTFLoader()
 let gltfScene
 let tablet_scene
@@ -112,19 +118,6 @@ loader.load('./models/macbook/scene.glb', ( gltf ) => {
 	console.error( error )
 } )
 
-// Initialize postprocessing
-const composer = new EffectComposer(renderer);
-const renderPass = new RenderPass(scene, camera);
-composer.addPass(renderPass);
-
-// Add Depth of Field (DoF) effect
-const depthOfFieldEffect = new DepthOfFieldEffect(camera, {
-    focusDistance: 0.02,
-    focalLength: 0.5,
-    bokehScale: 2.0,
-    height: 480
-});
-
 // HANDLE WINDOW RESIZES
 addEventListener("resize", (event) => {})
 onresize = (event) => {
@@ -135,6 +128,7 @@ onresize = (event) => {
     renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
+// OBJECT ANIMATIONS
 function animate() {
     requestAnimationFrame(animate);
 
@@ -163,7 +157,6 @@ function animate() {
         screwdriver_scene.rotation.y += 0.005
         screwdriver_scene.rotation.z += 0.009
     }
-
     renderer.render(scene, camera);
 }
 

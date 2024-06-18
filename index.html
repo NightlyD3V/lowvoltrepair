@@ -11,34 +11,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Tiny5&display=swap" rel="stylesheet">
     <!-- FONT-AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- CUSTOM STYLES -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav style="display: flex; justify-content: space-around; align-items: center;">
-        <h1 class="logo">>_LVR</h1>
+        <h1 id="logo">>_LVR</h1>
         <div style="padding: 25px;">
             <a href="#" class="nav_link">HOME</a>
             <a href="#" class="nav_link">CONTACT</a>
         </div>
     </nav>
-    <div id="middle_container">
+    <div id="top_container">
         <!-- <h1 style="font-family: 'Tiny5'; font-size: 40px; text-align: center;">
             ABOUT
         </h1> -->
-        <h1 style="font-family: 'Cinzel'; text-align: center; font-size: 2rem; max-width: 800px; margin: 0 auto; padding: 50px;"> 
+        <h1 id="about_text"> 
             "A small electronic repair company located in New Jersey. Laptops, Phones, Tablets and more.
-            We also offer website design and development services."
-        </h1>
+            We also offer website design, development & tutoring services."
+            </h1>
+        <button type="button" class="btn btn-primary">CONTACT US</button>
     </div>
     <canvas class="webgl"></canvas>
     <h1 style="font-family: 'Tiny5'; font-size: 40px; text-align: center;">HAVE SOMETHING YOU NEED?</h1>
-    <h1 style="font-family: 'Tiny5'; font-size: 40px; text-align: center;">Get in touch!</h1>
-    <div id="contact_form" style="display: flex; flex-direction: column; justify-content: center; margin: 50px;">
-        <input class="contact_input" type="text" name="fname"><br>
-        <input class="contact_input" type="text" name="lname"><br>
-        <input class="contact_input" type="text" name="email"><br>   
+    <h1 style="font-family: 'Cinzel'; font-size: 40px; text-align: center;">Get in touch!</h1>
+    <div id="contact_container">
+        <form id="contact_form" style="display: flex; flex-direction: column; justify-content: center; margin: 50px;">
+            <label for="email">Email:</label><br>
+            <input class="contact_input" value="email" type="text" name="email"><br>
+            <input class="contact_input" type="text" name="name"><br>
+            <input class="contact_input" type="text" name="email"><br>
+            <button id="send_button" type="button" class="btn btn-primary">SUBMIT</button>   
+        </form>
     </div>
+    <footer>
+        <h1 style="text-align: center;">&copy; 2024 NightlyD3V</h1>
+    </footer>
+    <script type="module" src="pageAnimations.ts"></script>
     <script type="module" src="main.js"></script>
 </body>
 </html>
