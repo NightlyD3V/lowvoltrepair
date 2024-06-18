@@ -68,8 +68,15 @@ let iphone_scene
 let multimeter_scene
 let wrench_scene
 let screwdriver_scene
+let microscope_scene
 loader.load('./models/macbook/scene.glb', ( gltf ) => {
     gltfScene = gltf.scene
+    loader.load("./models/microscope/microscope.gltf", ( gltf ) => {
+        microscope_scene = gltf.scene  
+        microscope_scene.position.setY(-0.4)
+        microscope_scene.position.setX(-0.1)
+        gltfScene.add(microscope_scene)  
+    })
     loader.load('./models/multimeter/multimeter.gltf', ( gltf ) => {
         multimeter_scene = gltf.scene				
         multimeter_scene.scale.setScalar(0.4)
@@ -132,7 +139,7 @@ onresize = (event) => {
 function animate() {
     requestAnimationFrame(animate);
 
-    if (gltfScene, tablet_scene, iphone_scene, multimeter_scene, wrench_scene, screwdriver_scene) {
+    if (gltfScene) {
         gltfScene.rotation.x += 0.001
         gltfScene.rotation.y += 0.009
         gltfScene.rotation.z += 0.001
@@ -156,6 +163,11 @@ function animate() {
         screwdriver_scene.rotation.x += 0.001
         screwdriver_scene.rotation.y += 0.005
         screwdriver_scene.rotation.z += 0.009
+
+        microscope_scene.rotation.x += 0.001
+        microscope_scene.rotation.y += 0.009
+        microscope_scene.rotation.z += 0.001
+        
     }
     renderer.render(scene, camera);
 }

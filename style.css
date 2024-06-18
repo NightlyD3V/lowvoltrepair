@@ -61,12 +61,14 @@ nav {
 #logo {
 	font-size: 35px;
 	font-family: 'Tiny5';
-	padding: 25px;
+	padding: 20px;
+}
+#logo:hover {
+	cursor: crosshair;
 }
 .nav_link {
 	color: white;
-	font-family: "Cinzel";
-	font-weight: bold;
+	font-family: "Roboto", sans-serif;
 	padding: 10px;
 	text-decoration: none;
 }
@@ -76,16 +78,18 @@ nav {
 	align-items: center;
 	position: absolute;
 	left: -1000px;
-	animation: slide 1s forwards;
+	margin-left: auto;
+	margin-right: auto;
+	animation: slide 2s forwards;
 	animation-delay: 1s;
-	-webkit-animation: slide 1s forwards;
+	-webkit-animation: slide 2s forwards;
 	-webkit-animation-delay: 1s;
 }
 @-webkit-keyframes slide {
-	100% { left: 0% }
+	100% { left: 0; right: 0 }
 }
 @keyframes slide {
-	100% { left: 0% }
+	100% { left: 0; right: 0}
 }
 #about_text {
 	font-family: 'Cinzel'; 
@@ -95,6 +99,17 @@ nav {
 	max-width: 800px; 
 	margin: auto; 
 	padding: 50px;
+}
+#card_container {
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+}
+#contact_text {
+	font-family: 'Tiny5'; 
+	font-size: 100%; 
+	text-align: center;
+	margin-top: 50px;
 }
 #contact_container {
 	background-color: aliceblue;
@@ -106,9 +121,16 @@ nav {
 	background-image: radial-gradient(black 1px, transparent 10%);
 	background-size: 40px 40px;
 	background-position: -19px -19px;
+	font-family: "Roboto", sans-serif;
+}
+#contact_form {
+	display: flex; 
+	flex-direction: column; 
+	justify-content: center; 
+	margin: 25px;
 }
 .contact_input {
-	text-align: center;
+	
 	margin: 15px;
 	padding: 5px;
 	width: 80%;
@@ -133,5 +155,19 @@ footer {
 	 }
 	 #about_text { 
 		font-size: 1.5rem;
+	 }
+	 #logo {
+		 position: absolute;
+		margin: auto;
+		top: 10px;
+		left: 0;
+		right: 0;
+	 }
+	 #top_container {
+		position: relative;
+		top: 50px;
+	 }
+	 #card_container { 
+		flex-direction: column;
 	 }
 }
