@@ -35,25 +35,25 @@
             "A small electronic repair company located in New Jersey. Laptops, Phones, Tablets and more.
             We also offer website design, development & tutoring services."
             </h1>
-        <button type="button" class="btn btn-primary" style="font-family: Roboto, sans-serif;">CONTACT</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='#contact_form'" style="font-family: Roboto, sans-serif;">CONTACT</button>
     </div>
     <canvas class="webgl"></canvas>
     <div id ="card_container">
-        <div class="card" style="width: 18rem; margin: 25px;">
+        <div data-aos="zoom-in" class="card" style="width: 18rem; margin: 25px;">
             <img class="card-img-top" src="./images/repair.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Electronic Repair</h5>
               <p class="card-text">We specialize in repairing laptops, desktops, phones and tablets.</p>
             </div>
         </div>
-        <div class="card" style="width: 18rem; margin: 25px;">
+        <div data-aos="zoom-in" class="card" style="width: 18rem; margin: 25px;">
             <img class="card-img-top" src="./images/design.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Web Development</h5>
               <p class="card-text">Have an idea for a website you always wanted to create? Let us make your dream site for you!</p>
-            </div>
+            </div> 
         </div>
-        <div class="card" style="width: 18rem; margin: 25px;">
+        <div data-aos="zoom-in" class="card" style="width: 18rem; margin: 25px;">
             <img class="card-img-top" src="./images/tutor.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Tutoring</h5>
@@ -67,7 +67,7 @@
         <form id="contact_form" action="/url" method="GET">
             <input class="contact_input" placeholder="name" type="text" name="name"><br>
             <input class="contact_input" placeholder="email" type="text" name="email" required><br>
-            <input class="contact_input" type="file" name="file"><br>
+            <input class="contact_input" type="file" multiple="true" name="file"><br>
             <button id="send_button" type="button" class="btn btn-primary">SUBMIT</button>   
         </form>
     </div>
