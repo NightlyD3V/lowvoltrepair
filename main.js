@@ -61,6 +61,8 @@ backLight.position.set(0, 5, -5); // Adjust position as needed
 scene.add(backLight);
 
 // GLTF LOADING
+
+
 const loader = new GLTFLoader()
 let gltfScene
 let tablet_scene
@@ -173,5 +175,3 @@ function animate() {
 }
 
 animate();
-
-console.log("Hello")
